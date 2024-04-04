@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nuosu+SIL&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/svg+xml" href="./piggy.png" />
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" SameSite = None rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        
+        <title>Pig Game</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <img src="./piggy.png" alt="pig" />
+            <h1>Select the score limit:</h1>
+            <select id="mySelect">
+              <option value=50>50</option>
+              <option value=100>100</option>
+              <option value=250>250</option>
+              <option value=500>500</option>
+            </select>
+            
+            <h3>Click the new game button to restart the game with your preferences!</h3>
+        </div>
+
+        <dialog onclick="closeRules()" class="rule-center">
+            <div class="rule-set">
+                <h2>Pig 🐷 Game</h2>
+                <ol>
+                    <li>The game has <span>2</span> players, playing by rounds.</li>
+                    <li>In each turn, a player rolls a dice as many times as they wish. Each result gets added to their round's score.</li>
+                    <li>The player can choose to <span>HOLD</span>, which means that their <span>ROUND</span> score gets added to their <span>GLOBAL</span> score. After that, it's the next player's turn.</li>
+                    <li>The first player to reach the target score wins the game.</li>
+                    <li>If a player rolls the dice and one of the dice is a 1 then the player's round score is brought back to <span>ZERO</span> and will receive a <span>STRIKE</span>.</li>
+                    <li>If a player receives 3 <span>STRIKES</span> within their turn then they've BUSTED and will lose their <span>GLOBAL</span> score and be brought back to <span>ZERO</span> ending their round.</li>
+                    <li>If the player rolls two 1's then they've roll <span>SNAKE EYES</span> which will automatically bring their <span>GLOBAL</span> score to <span>ZERO</span> and ending their round.</li>
+                </ol>
+
+            </div>
+        </dialog>
+
+        <div class="body-game">
+            <div>
+                <button onclick="openRules()" class="rule-button">Rules</button>
+            </div>
+
+            <div class="wrapper clearfix">
+                <div class="player-0-panel active">
+                    <h3 class="strikes-0"></h3>
+                    <div class="player-name" id="name-0">Player 1</div>
+                    <div class="player-score" id="score-0">43</div>
+                    <div class="player-current-box">
+                        <div class="player-current-label">Current</div>
+                        <div class="player-current-score" id="current-0">11</div>
+                    </div>
+                </div>
+                
+                <div class="player-1-panel">
+                    <h3 class="strikes-1"></h3>
+                    <div class="player-name" id="name-1">Player 2</div>
+                    <div class="player-score" id="score-1">72</div>
+                    <div class="player-current-box">
+                        <div class="player-current-label">Current</div>
+                        <div class="player-current-score" id="current-1">0</div>
+                    </div>
+                </div>
+            
+                <h2 class="score-target">Score Target: <span id="score">1</span></h2>
+                <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
+    
+                <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
+                <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
+                
+                <div alt="Dice" class="dice" >
+                    <h3 class="snake">Snake Eyes!</h3>
+    
+                    <div class="column">
+                        <img src="dice-5.png" class="dice-0" width= 100 height = 100>
+                        
+                        <img src="dice-5.png" class="dice-1" width= 100 height = 100>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="app.js"></script>
+    </body>
+</html>
